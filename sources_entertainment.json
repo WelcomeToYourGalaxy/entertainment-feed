@@ -1,0 +1,1608 @@
+{
+  "_note": [
+    "Sources for the entertainment wire.",
+    "",
+    "This is a feed on the industry, not on its output. Reviews, trailers,",
+    "casting, box office weekends, awards and celebrity coverage are refused by",
+    "the gate — that is nearly all entertainment coverage, and none of it is the",
+    "subject.",
+    "",
+    "direct: feeds proven working in the sibling Welcome to Your Galaxy repos.",
+    "  Nothing invented — an untested feed URL reports itself unreachable on every",
+    "  harvest and quietly makes the coverage figure a lie.",
+    "",
+    "  Like the science wire, this direct list is thin for the subject: the",
+    "  sibling repos carry privacy and rights organisations, which cover the",
+    "  tracking and neurotechnology half well, but nothing on studios, labels,",
+    "  streaming economics or games. The events block and the additions below are",
+    "  what will make the industry half work.",
+    "",
+    "gnews: Google News locale searches; the harvester builds the URL from",
+    "  hl / gl / ceid. Twenty-four queries rotate across 46 locales.",
+    "",
+    "events: subject searches for regulators, courts, unions and research.",
+    "",
+    "standing is provenance, not importance:",
+    "  official  competition and data regulators, courts, classification bodies",
+    "  research  concentration, algorithm and screen-time research",
+    "  press     general news across the locales",
+    "  rights    unions, privacy and audience organisations",
+    "",
+    "Add next, with URLs you have opened: the Neurorights Foundation, noyb, the",
+    "Center for Humane Technology, Fairness for Musicians / United Musicians,",
+    "SAG-AFTRA and WGA newsrooms, Game Workers Unite, the Electronic Frontier",
+    "Foundation's Deeplinks, and national classification boards."
+  ],
+  "direct": [
+    {
+      "name": "European Commission",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://ec.europa.eu/commission/presscorner/api/rss"
+    },
+    {
+      "name": "US Department of Justice",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://www.justice.gov/feeds/opa/justice-news.xml"
+    },
+    {
+      "name": "OECD",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://www.oecd.org/newsroom/index.xml"
+    },
+    {
+      "name": "UNCTAD",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://unctad.org/rss.xml"
+    },
+    {
+      "name": "OHCHR — news",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://www.ohchr.org/en/rss/news"
+    },
+    {
+      "name": "European Court of Human Rights",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://www.echr.coe.int/rss"
+    },
+    {
+      "name": "Europol",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://www.europol.europa.eu/rss.xml"
+    },
+    {
+      "name": "UN News — Human Rights",
+      "lang": "en",
+      "standing": "official",
+      "url": "https://news.un.org/feed/subscribe/en/news/topic/human-rights/feed/rss.xml"
+    },
+    {
+      "name": "Electronic Frontier Foundation",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.eff.org/rss/updates.xml"
+    },
+    {
+      "name": "Privacy International",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://privacyinternational.org/rss.xml"
+    },
+    {
+      "name": "EDRi",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://edri.org/feed/"
+    },
+    {
+      "name": "Access Now",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.accessnow.org/feed/"
+    },
+    {
+      "name": "Article 19",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.article19.org/feed/"
+    },
+    {
+      "name": "Statewatch",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.statewatch.org/rss/"
+    },
+    {
+      "name": "Public Citizen · Global Trade Watch",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.citizen.org/feed/"
+    },
+    {
+      "name": "Corporate Europe Observatory",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://corporateeurope.org/en/rss.xml"
+    },
+    {
+      "name": "Business & Human Rights Resource Centre",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://www.business-humanrights.org/en/rss/"
+    },
+    {
+      "name": "Transparency International",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://www.transparency.org/en/rss"
+    },
+    {
+      "name": "Bellingcat",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://www.bellingcat.com/feed/"
+    },
+    {
+      "name": "Freedom House",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://freedomhouse.org/rss.xml"
+    },
+    {
+      "name": "CIVICUS Monitor",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://monitor.civicus.org/feed/"
+    },
+    {
+      "name": "ODI",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://odi.org/en/feed/"
+    },
+    {
+      "name": "CEPR",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://cepr.org/rss.xml"
+    },
+    {
+      "name": "Peterson Institute",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://www.piie.com/rss.xml"
+    },
+    {
+      "name": "Tax Justice Network",
+      "lang": "en",
+      "standing": "research",
+      "url": "https://taxjustice.net/feed/"
+    },
+    {
+      "name": "Global Witness",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.globalwitness.org/en/rss/"
+    },
+    {
+      "name": "Human Rights Watch",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.hrw.org/rss/news"
+    },
+    {
+      "name": "Amnesty International",
+      "lang": "en",
+      "standing": "rights",
+      "url": "https://www.amnesty.org/en/rss/"
+    },
+    {
+      "name": "The Intercept",
+      "lang": "en",
+      "standing": "press",
+      "url": "https://theintercept.com/feed/?rss"
+    },
+    {
+      "name": "The Marshall Project",
+      "lang": "en",
+      "standing": "press",
+      "url": "https://www.themarshallproject.org/rss/recent.rss"
+    }
+  ],
+  "gnews": [
+    {
+      "label": "English (US) 1",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "\"recommendation algorithm\" audit OR researcher access OR ranking change platform"
+    },
+    {
+      "label": "English (US) 2",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "\"loot box\" ruling OR gambling OR microtransactions regulator"
+    },
+    {
+      "label": "English (US) 3",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "\"streaming royalties\" OR per-stream payout OR artist contract dispute"
+    },
+    {
+      "label": "English (UK) 4",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-GB",
+      "gl": "GB",
+      "ceid": "GB:en-GB",
+      "query": "residuals OR \"writers strike\" OR \"actors strike\" OR SAG-AFTRA agreement"
+    },
+    {
+      "label": "English (UK) 5",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-GB",
+      "gl": "GB",
+      "ceid": "GB:en-GB",
+      "query": "\"digital replica\" OR likeness rights OR voice clone consent actor"
+    },
+    {
+      "label": "English (UK) 6",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-GB",
+      "gl": "GB",
+      "ceid": "GB:en-GB",
+      "query": "\"age verification\" adult platform OR pornography law OR age assurance"
+    },
+    {
+      "label": "English (India) 7",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-IN",
+      "gl": "IN",
+      "ceid": "IN:en",
+      "query": "\"screen time\" children study OR hours per day media consumption"
+    },
+    {
+      "label": "English (India) 8",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-IN",
+      "gl": "IN",
+      "ceid": "IN:en",
+      "query": "\"emotion recognition\" ban OR affective computing OR neuromarketing"
+    },
+    {
+      "label": "English (India) 9",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-IN",
+      "gl": "IN",
+      "ceid": "IN:en",
+      "query": "\"neural data\" OR neurorights OR brain-computer interface consumer"
+    },
+    {
+      "label": "English (Nigeria) 10",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-NG",
+      "gl": "NG",
+      "ceid": "NG:en",
+      "query": "\"smart TV\" tracking OR \"automatic content recognition\" privacy"
+    },
+    {
+      "label": "English (Nigeria) 11",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-NG",
+      "gl": "NG",
+      "ceid": "NG:en",
+      "query": "antitrust streaming OR Ticketmaster OR Live Nation remedy"
+    },
+    {
+      "label": "English (Nigeria) 12",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-NG",
+      "gl": "NG",
+      "ceid": "NG:en",
+      "query": "\"content moderation\" outsourced moderators conditions OR lawsuit"
+    },
+    {
+      "label": "English (South Africa) 13",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-ZA",
+      "gl": "ZA",
+      "ceid": "ZA:en",
+      "query": "\"content quota\" OR \"streaming levy\" OR local content obligation"
+    },
+    {
+      "label": "English (South Africa) 14",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-ZA",
+      "gl": "ZA",
+      "ceid": "ZA:en",
+      "query": "copyright lawsuit training data music OR film OR authors"
+    },
+    {
+      "label": "English (South Africa) 15",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-ZA",
+      "gl": "ZA",
+      "ceid": "ZA:en",
+      "query": "\"dark patterns\" subscription cancellation ruling OR auto-renew"
+    },
+    {
+      "label": "English (Australia) 16",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-AU",
+      "gl": "AU",
+      "ceid": "AU:en",
+      "query": "studio layoffs OR game studio closure OR animation jobs cut"
+    },
+    {
+      "label": "English (Australia) 17",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-AU",
+      "gl": "AU",
+      "ceid": "AU:en",
+      "query": "\"market share\" streaming OR box office concentration OR record labels"
+    },
+    {
+      "label": "English (Australia) 18",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-AU",
+      "gl": "AU",
+      "ceid": "AU:en",
+      "query": "payola OR playlist placement OR streaming fraud fake streams"
+    },
+    {
+      "label": "English (Kenya) 19",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-KE",
+      "gl": "KE",
+      "ceid": "KE:en",
+      "query": "film banned OR certificate refused OR classification board decision"
+    },
+    {
+      "label": "English (Kenya) 20",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-KE",
+      "gl": "KE",
+      "ceid": "KE:en",
+      "query": "\"biometric\" venue OR facial recognition stadium OR cinema audience"
+    },
+    {
+      "label": "English (Kenya) 21",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-KE",
+      "gl": "KE",
+      "ceid": "KE:en",
+      "query": "demonetised creators OR shadow ban OR platform takedown appeal"
+    },
+    {
+      "label": "English (Philippines) 22",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-PH",
+      "gl": "PH",
+      "ceid": "PH:en",
+      "query": "\"MindGeek\" OR Aylo OR OnlyFans policy OR investigation"
+    },
+    {
+      "label": "English (Philippines) 23",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-PH",
+      "gl": "PH",
+      "ceid": "PH:en",
+      "query": "\"non-consensual intimate images\" takedown law OR removal"
+    },
+    {
+      "label": "English (Philippines) 24",
+      "lang": "en",
+      "standing": "press",
+      "hl": "en-PH",
+      "gl": "PH",
+      "ceid": "PH:en",
+      "query": "\"game workers\" union OR crunch OR developers strike"
+    },
+    {
+      "label": "Spanish (Spain) 25",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es",
+      "gl": "ES",
+      "ceid": "ES:es",
+      "query": "\"recommendation algorithm\" audit OR researcher access OR ranking change platform"
+    },
+    {
+      "label": "Spanish (Spain) 26",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es",
+      "gl": "ES",
+      "ceid": "ES:es",
+      "query": "\"loot box\" ruling OR gambling OR microtransactions regulator"
+    },
+    {
+      "label": "Spanish (Spain) 27",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es",
+      "gl": "ES",
+      "ceid": "ES:es",
+      "query": "\"streaming royalties\" OR per-stream payout OR artist contract dispute"
+    },
+    {
+      "label": "Spanish (Mexico) 28",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "MX",
+      "ceid": "MX:es-419",
+      "query": "residuals OR \"writers strike\" OR \"actors strike\" OR SAG-AFTRA agreement"
+    },
+    {
+      "label": "Spanish (Mexico) 29",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "MX",
+      "ceid": "MX:es-419",
+      "query": "\"digital replica\" OR likeness rights OR voice clone consent actor"
+    },
+    {
+      "label": "Spanish (Mexico) 30",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "MX",
+      "ceid": "MX:es-419",
+      "query": "\"age verification\" adult platform OR pornography law OR age assurance"
+    },
+    {
+      "label": "Spanish (Argentina) 31",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "AR",
+      "ceid": "AR:es-419",
+      "query": "\"screen time\" children study OR hours per day media consumption"
+    },
+    {
+      "label": "Spanish (Argentina) 32",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "AR",
+      "ceid": "AR:es-419",
+      "query": "\"emotion recognition\" ban OR affective computing OR neuromarketing"
+    },
+    {
+      "label": "Spanish (Argentina) 33",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "AR",
+      "ceid": "AR:es-419",
+      "query": "\"neural data\" OR neurorights OR brain-computer interface consumer"
+    },
+    {
+      "label": "Spanish (Colombia) 34",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "CO",
+      "ceid": "CO:es-419",
+      "query": "\"smart TV\" tracking OR \"automatic content recognition\" privacy"
+    },
+    {
+      "label": "Spanish (Colombia) 35",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "CO",
+      "ceid": "CO:es-419",
+      "query": "antitrust streaming OR Ticketmaster OR Live Nation remedy"
+    },
+    {
+      "label": "Spanish (Colombia) 36",
+      "lang": "es",
+      "standing": "press",
+      "hl": "es-419",
+      "gl": "CO",
+      "ceid": "CO:es-419",
+      "query": "\"content moderation\" outsourced moderators conditions OR lawsuit"
+    },
+    {
+      "label": "French (France) 37",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "FR",
+      "ceid": "FR:fr",
+      "query": "\"content quota\" OR \"streaming levy\" OR local content obligation"
+    },
+    {
+      "label": "French (France) 38",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "FR",
+      "ceid": "FR:fr",
+      "query": "copyright lawsuit training data music OR film OR authors"
+    },
+    {
+      "label": "French (France) 39",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "FR",
+      "ceid": "FR:fr",
+      "query": "\"dark patterns\" subscription cancellation ruling OR auto-renew"
+    },
+    {
+      "label": "French (Senegal) 40",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "SN",
+      "ceid": "SN:fr",
+      "query": "studio layoffs OR game studio closure OR animation jobs cut"
+    },
+    {
+      "label": "French (Senegal) 41",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "SN",
+      "ceid": "SN:fr",
+      "query": "\"market share\" streaming OR box office concentration OR record labels"
+    },
+    {
+      "label": "French (Senegal) 42",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "SN",
+      "ceid": "SN:fr",
+      "query": "payola OR playlist placement OR streaming fraud fake streams"
+    },
+    {
+      "label": "French (Canada) 43",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "CA",
+      "ceid": "CA:fr",
+      "query": "film banned OR certificate refused OR classification board decision"
+    },
+    {
+      "label": "French (Canada) 44",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "CA",
+      "ceid": "CA:fr",
+      "query": "\"biometric\" venue OR facial recognition stadium OR cinema audience"
+    },
+    {
+      "label": "French (Canada) 45",
+      "lang": "fr",
+      "standing": "press",
+      "hl": "fr",
+      "gl": "CA",
+      "ceid": "CA:fr",
+      "query": "demonetised creators OR shadow ban OR platform takedown appeal"
+    },
+    {
+      "label": "Portuguese (Brazil) 46",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-BR",
+      "gl": "BR",
+      "ceid": "BR:pt-419",
+      "query": "\"MindGeek\" OR Aylo OR OnlyFans policy OR investigation"
+    },
+    {
+      "label": "Portuguese (Brazil) 47",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-BR",
+      "gl": "BR",
+      "ceid": "BR:pt-419",
+      "query": "\"non-consensual intimate images\" takedown law OR removal"
+    },
+    {
+      "label": "Portuguese (Brazil) 48",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-BR",
+      "gl": "BR",
+      "ceid": "BR:pt-419",
+      "query": "\"game workers\" union OR crunch OR developers strike"
+    },
+    {
+      "label": "Portuguese (Portugal) 49",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-PT",
+      "gl": "PT",
+      "ceid": "PT:pt-150",
+      "query": "\"recommendation algorithm\" audit OR researcher access OR ranking change platform"
+    },
+    {
+      "label": "Portuguese (Portugal) 50",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-PT",
+      "gl": "PT",
+      "ceid": "PT:pt-150",
+      "query": "\"loot box\" ruling OR gambling OR microtransactions regulator"
+    },
+    {
+      "label": "Portuguese (Portugal) 51",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-PT",
+      "gl": "PT",
+      "ceid": "PT:pt-150",
+      "query": "\"streaming royalties\" OR per-stream payout OR artist contract dispute"
+    },
+    {
+      "label": "Portuguese (Angola) 52",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-PT",
+      "gl": "AO",
+      "ceid": "AO:pt-150",
+      "query": "residuals OR \"writers strike\" OR \"actors strike\" OR SAG-AFTRA agreement"
+    },
+    {
+      "label": "Portuguese (Angola) 53",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-PT",
+      "gl": "AO",
+      "ceid": "AO:pt-150",
+      "query": "\"digital replica\" OR likeness rights OR voice clone consent actor"
+    },
+    {
+      "label": "Portuguese (Angola) 54",
+      "lang": "pt",
+      "standing": "press",
+      "hl": "pt-PT",
+      "gl": "AO",
+      "ceid": "AO:pt-150",
+      "query": "\"age verification\" adult platform OR pornography law OR age assurance"
+    },
+    {
+      "label": "German (Germany) 55",
+      "lang": "de",
+      "standing": "press",
+      "hl": "de",
+      "gl": "DE",
+      "ceid": "DE:de",
+      "query": "\"screen time\" children study OR hours per day media consumption"
+    },
+    {
+      "label": "German (Germany) 56",
+      "lang": "de",
+      "standing": "press",
+      "hl": "de",
+      "gl": "DE",
+      "ceid": "DE:de",
+      "query": "\"emotion recognition\" ban OR affective computing OR neuromarketing"
+    },
+    {
+      "label": "German (Germany) 57",
+      "lang": "de",
+      "standing": "press",
+      "hl": "de",
+      "gl": "DE",
+      "ceid": "DE:de",
+      "query": "\"neural data\" OR neurorights OR brain-computer interface consumer"
+    },
+    {
+      "label": "German (Austria) 58",
+      "lang": "de",
+      "standing": "press",
+      "hl": "de",
+      "gl": "AT",
+      "ceid": "AT:de",
+      "query": "\"smart TV\" tracking OR \"automatic content recognition\" privacy"
+    },
+    {
+      "label": "German (Austria) 59",
+      "lang": "de",
+      "standing": "press",
+      "hl": "de",
+      "gl": "AT",
+      "ceid": "AT:de",
+      "query": "antitrust streaming OR Ticketmaster OR Live Nation remedy"
+    },
+    {
+      "label": "German (Austria) 60",
+      "lang": "de",
+      "standing": "press",
+      "hl": "de",
+      "gl": "AT",
+      "ceid": "AT:de",
+      "query": "\"content moderation\" outsourced moderators conditions OR lawsuit"
+    },
+    {
+      "label": "Russian (Russia) 61",
+      "lang": "ru",
+      "standing": "press",
+      "hl": "ru",
+      "gl": "RU",
+      "ceid": "RU:ru",
+      "query": "\"content quota\" OR \"streaming levy\" OR local content obligation"
+    },
+    {
+      "label": "Russian (Russia) 62",
+      "lang": "ru",
+      "standing": "press",
+      "hl": "ru",
+      "gl": "RU",
+      "ceid": "RU:ru",
+      "query": "copyright lawsuit training data music OR film OR authors"
+    },
+    {
+      "label": "Russian (Russia) 63",
+      "lang": "ru",
+      "standing": "press",
+      "hl": "ru",
+      "gl": "RU",
+      "ceid": "RU:ru",
+      "query": "\"dark patterns\" subscription cancellation ruling OR auto-renew"
+    },
+    {
+      "label": "Russian (Kazakhstan) 64",
+      "lang": "ru",
+      "standing": "press",
+      "hl": "ru",
+      "gl": "KZ",
+      "ceid": "KZ:ru",
+      "query": "studio layoffs OR game studio closure OR animation jobs cut"
+    },
+    {
+      "label": "Russian (Kazakhstan) 65",
+      "lang": "ru",
+      "standing": "press",
+      "hl": "ru",
+      "gl": "KZ",
+      "ceid": "KZ:ru",
+      "query": "\"market share\" streaming OR box office concentration OR record labels"
+    },
+    {
+      "label": "Russian (Kazakhstan) 66",
+      "lang": "ru",
+      "standing": "press",
+      "hl": "ru",
+      "gl": "KZ",
+      "ceid": "KZ:ru",
+      "query": "payola OR playlist placement OR streaming fraud fake streams"
+    },
+    {
+      "label": "Arabic (Egypt) 67",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "EG",
+      "ceid": "EG:ar",
+      "query": "film banned OR certificate refused OR classification board decision"
+    },
+    {
+      "label": "Arabic (Egypt) 68",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "EG",
+      "ceid": "EG:ar",
+      "query": "\"biometric\" venue OR facial recognition stadium OR cinema audience"
+    },
+    {
+      "label": "Arabic (Egypt) 69",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "EG",
+      "ceid": "EG:ar",
+      "query": "demonetised creators OR shadow ban OR platform takedown appeal"
+    },
+    {
+      "label": "Arabic (UAE) 70",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "AE",
+      "ceid": "AE:ar",
+      "query": "\"MindGeek\" OR Aylo OR OnlyFans policy OR investigation"
+    },
+    {
+      "label": "Arabic (UAE) 71",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "AE",
+      "ceid": "AE:ar",
+      "query": "\"non-consensual intimate images\" takedown law OR removal"
+    },
+    {
+      "label": "Arabic (UAE) 72",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "AE",
+      "ceid": "AE:ar",
+      "query": "\"game workers\" union OR crunch OR developers strike"
+    },
+    {
+      "label": "Arabic (Lebanon) 73",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "LB",
+      "ceid": "LB:ar",
+      "query": "\"recommendation algorithm\" audit OR researcher access OR ranking change platform"
+    },
+    {
+      "label": "Arabic (Lebanon) 74",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "LB",
+      "ceid": "LB:ar",
+      "query": "\"loot box\" ruling OR gambling OR microtransactions regulator"
+    },
+    {
+      "label": "Arabic (Lebanon) 75",
+      "lang": "ar",
+      "standing": "press",
+      "hl": "ar",
+      "gl": "LB",
+      "ceid": "LB:ar",
+      "query": "\"streaming royalties\" OR per-stream payout OR artist contract dispute"
+    },
+    {
+      "label": "Chinese (Mainland) 76",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-CN",
+      "gl": "CN",
+      "ceid": "CN:zh-Hans",
+      "query": "residuals OR \"writers strike\" OR \"actors strike\" OR SAG-AFTRA agreement"
+    },
+    {
+      "label": "Chinese (Mainland) 77",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-CN",
+      "gl": "CN",
+      "ceid": "CN:zh-Hans",
+      "query": "\"digital replica\" OR likeness rights OR voice clone consent actor"
+    },
+    {
+      "label": "Chinese (Mainland) 78",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-CN",
+      "gl": "CN",
+      "ceid": "CN:zh-Hans",
+      "query": "\"age verification\" adult platform OR pornography law OR age assurance"
+    },
+    {
+      "label": "Chinese (Taiwan) 79",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-TW",
+      "gl": "TW",
+      "ceid": "TW:zh-Hant",
+      "query": "\"screen time\" children study OR hours per day media consumption"
+    },
+    {
+      "label": "Chinese (Taiwan) 80",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-TW",
+      "gl": "TW",
+      "ceid": "TW:zh-Hant",
+      "query": "\"emotion recognition\" ban OR affective computing OR neuromarketing"
+    },
+    {
+      "label": "Chinese (Taiwan) 81",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-TW",
+      "gl": "TW",
+      "ceid": "TW:zh-Hant",
+      "query": "\"neural data\" OR neurorights OR brain-computer interface consumer"
+    },
+    {
+      "label": "Chinese (Hong Kong) 82",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-HK",
+      "gl": "HK",
+      "ceid": "HK:zh-Hant",
+      "query": "\"smart TV\" tracking OR \"automatic content recognition\" privacy"
+    },
+    {
+      "label": "Chinese (Hong Kong) 83",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-HK",
+      "gl": "HK",
+      "ceid": "HK:zh-Hant",
+      "query": "antitrust streaming OR Ticketmaster OR Live Nation remedy"
+    },
+    {
+      "label": "Chinese (Hong Kong) 84",
+      "lang": "zh",
+      "standing": "press",
+      "hl": "zh-HK",
+      "gl": "HK",
+      "ceid": "HK:zh-Hant",
+      "query": "\"content moderation\" outsourced moderators conditions OR lawsuit"
+    },
+    {
+      "label": "Hindi (India) 85",
+      "lang": "hi",
+      "standing": "press",
+      "hl": "hi",
+      "gl": "IN",
+      "ceid": "IN:hi",
+      "query": "\"content quota\" OR \"streaming levy\" OR local content obligation"
+    },
+    {
+      "label": "Hindi (India) 86",
+      "lang": "hi",
+      "standing": "press",
+      "hl": "hi",
+      "gl": "IN",
+      "ceid": "IN:hi",
+      "query": "copyright lawsuit training data music OR film OR authors"
+    },
+    {
+      "label": "Hindi (India) 87",
+      "lang": "hi",
+      "standing": "press",
+      "hl": "hi",
+      "gl": "IN",
+      "ceid": "IN:hi",
+      "query": "\"dark patterns\" subscription cancellation ruling OR auto-renew"
+    },
+    {
+      "label": "Bengali (Bangladesh) 88",
+      "lang": "bn",
+      "standing": "press",
+      "hl": "bn",
+      "gl": "BD",
+      "ceid": "BD:bn",
+      "query": "studio layoffs OR game studio closure OR animation jobs cut"
+    },
+    {
+      "label": "Bengali (Bangladesh) 89",
+      "lang": "bn",
+      "standing": "press",
+      "hl": "bn",
+      "gl": "BD",
+      "ceid": "BD:bn",
+      "query": "\"market share\" streaming OR box office concentration OR record labels"
+    },
+    {
+      "label": "Bengali (Bangladesh) 90",
+      "lang": "bn",
+      "standing": "press",
+      "hl": "bn",
+      "gl": "BD",
+      "ceid": "BD:bn",
+      "query": "payola OR playlist placement OR streaming fraud fake streams"
+    },
+    {
+      "label": "Indonesian 91",
+      "lang": "id",
+      "standing": "press",
+      "hl": "id",
+      "gl": "ID",
+      "ceid": "ID:id",
+      "query": "film banned OR certificate refused OR classification board decision"
+    },
+    {
+      "label": "Indonesian 92",
+      "lang": "id",
+      "standing": "press",
+      "hl": "id",
+      "gl": "ID",
+      "ceid": "ID:id",
+      "query": "\"biometric\" venue OR facial recognition stadium OR cinema audience"
+    },
+    {
+      "label": "Indonesian 93",
+      "lang": "id",
+      "standing": "press",
+      "hl": "id",
+      "gl": "ID",
+      "ceid": "ID:id",
+      "query": "demonetised creators OR shadow ban OR platform takedown appeal"
+    },
+    {
+      "label": "Japanese 94",
+      "lang": "ja",
+      "standing": "press",
+      "hl": "ja",
+      "gl": "JP",
+      "ceid": "JP:ja",
+      "query": "\"MindGeek\" OR Aylo OR OnlyFans policy OR investigation"
+    },
+    {
+      "label": "Japanese 95",
+      "lang": "ja",
+      "standing": "press",
+      "hl": "ja",
+      "gl": "JP",
+      "ceid": "JP:ja",
+      "query": "\"non-consensual intimate images\" takedown law OR removal"
+    },
+    {
+      "label": "Japanese 96",
+      "lang": "ja",
+      "standing": "press",
+      "hl": "ja",
+      "gl": "JP",
+      "ceid": "JP:ja",
+      "query": "\"game workers\" union OR crunch OR developers strike"
+    },
+    {
+      "label": "Korean 97",
+      "lang": "ko",
+      "standing": "press",
+      "hl": "ko",
+      "gl": "KR",
+      "ceid": "KR:ko",
+      "query": "\"recommendation algorithm\" audit OR researcher access OR ranking change platform"
+    },
+    {
+      "label": "Korean 98",
+      "lang": "ko",
+      "standing": "press",
+      "hl": "ko",
+      "gl": "KR",
+      "ceid": "KR:ko",
+      "query": "\"loot box\" ruling OR gambling OR microtransactions regulator"
+    },
+    {
+      "label": "Korean 99",
+      "lang": "ko",
+      "standing": "press",
+      "hl": "ko",
+      "gl": "KR",
+      "ceid": "KR:ko",
+      "query": "\"streaming royalties\" OR per-stream payout OR artist contract dispute"
+    },
+    {
+      "label": "Turkish 100",
+      "lang": "tr",
+      "standing": "press",
+      "hl": "tr",
+      "gl": "TR",
+      "ceid": "TR:tr",
+      "query": "residuals OR \"writers strike\" OR \"actors strike\" OR SAG-AFTRA agreement"
+    },
+    {
+      "label": "Turkish 101",
+      "lang": "tr",
+      "standing": "press",
+      "hl": "tr",
+      "gl": "TR",
+      "ceid": "TR:tr",
+      "query": "\"digital replica\" OR likeness rights OR voice clone consent actor"
+    },
+    {
+      "label": "Turkish 102",
+      "lang": "tr",
+      "standing": "press",
+      "hl": "tr",
+      "gl": "TR",
+      "ceid": "TR:tr",
+      "query": "\"age verification\" adult platform OR pornography law OR age assurance"
+    },
+    {
+      "label": "Italian 103",
+      "lang": "it",
+      "standing": "press",
+      "hl": "it",
+      "gl": "IT",
+      "ceid": "IT:it",
+      "query": "\"screen time\" children study OR hours per day media consumption"
+    },
+    {
+      "label": "Italian 104",
+      "lang": "it",
+      "standing": "press",
+      "hl": "it",
+      "gl": "IT",
+      "ceid": "IT:it",
+      "query": "\"emotion recognition\" ban OR affective computing OR neuromarketing"
+    },
+    {
+      "label": "Italian 105",
+      "lang": "it",
+      "standing": "press",
+      "hl": "it",
+      "gl": "IT",
+      "ceid": "IT:it",
+      "query": "\"neural data\" OR neurorights OR brain-computer interface consumer"
+    },
+    {
+      "label": "Dutch 106",
+      "lang": "nl",
+      "standing": "press",
+      "hl": "nl",
+      "gl": "NL",
+      "ceid": "NL:nl",
+      "query": "\"smart TV\" tracking OR \"automatic content recognition\" privacy"
+    },
+    {
+      "label": "Dutch 107",
+      "lang": "nl",
+      "standing": "press",
+      "hl": "nl",
+      "gl": "NL",
+      "ceid": "NL:nl",
+      "query": "antitrust streaming OR Ticketmaster OR Live Nation remedy"
+    },
+    {
+      "label": "Dutch 108",
+      "lang": "nl",
+      "standing": "press",
+      "hl": "nl",
+      "gl": "NL",
+      "ceid": "NL:nl",
+      "query": "\"content moderation\" outsourced moderators conditions OR lawsuit"
+    },
+    {
+      "label": "Polish 109",
+      "lang": "pl",
+      "standing": "press",
+      "hl": "pl",
+      "gl": "PL",
+      "ceid": "PL:pl",
+      "query": "\"content quota\" OR \"streaming levy\" OR local content obligation"
+    },
+    {
+      "label": "Polish 110",
+      "lang": "pl",
+      "standing": "press",
+      "hl": "pl",
+      "gl": "PL",
+      "ceid": "PL:pl",
+      "query": "copyright lawsuit training data music OR film OR authors"
+    },
+    {
+      "label": "Polish 111",
+      "lang": "pl",
+      "standing": "press",
+      "hl": "pl",
+      "gl": "PL",
+      "ceid": "PL:pl",
+      "query": "\"dark patterns\" subscription cancellation ruling OR auto-renew"
+    },
+    {
+      "label": "Swedish 112",
+      "lang": "sv",
+      "standing": "press",
+      "hl": "sv",
+      "gl": "SE",
+      "ceid": "SE:sv",
+      "query": "studio layoffs OR game studio closure OR animation jobs cut"
+    },
+    {
+      "label": "Swedish 113",
+      "lang": "sv",
+      "standing": "press",
+      "hl": "sv",
+      "gl": "SE",
+      "ceid": "SE:sv",
+      "query": "\"market share\" streaming OR box office concentration OR record labels"
+    },
+    {
+      "label": "Swedish 114",
+      "lang": "sv",
+      "standing": "press",
+      "hl": "sv",
+      "gl": "SE",
+      "ceid": "SE:sv",
+      "query": "payola OR playlist placement OR streaming fraud fake streams"
+    },
+    {
+      "label": "Ukrainian 115",
+      "lang": "uk",
+      "standing": "press",
+      "hl": "uk",
+      "gl": "UA",
+      "ceid": "UA:uk",
+      "query": "film banned OR certificate refused OR classification board decision"
+    },
+    {
+      "label": "Ukrainian 116",
+      "lang": "uk",
+      "standing": "press",
+      "hl": "uk",
+      "gl": "UA",
+      "ceid": "UA:uk",
+      "query": "\"biometric\" venue OR facial recognition stadium OR cinema audience"
+    },
+    {
+      "label": "Ukrainian 117",
+      "lang": "uk",
+      "standing": "press",
+      "hl": "uk",
+      "gl": "UA",
+      "ceid": "UA:uk",
+      "query": "demonetised creators OR shadow ban OR platform takedown appeal"
+    },
+    {
+      "label": "Greek 118",
+      "lang": "el",
+      "standing": "press",
+      "hl": "el",
+      "gl": "GR",
+      "ceid": "GR:el",
+      "query": "\"MindGeek\" OR Aylo OR OnlyFans policy OR investigation"
+    },
+    {
+      "label": "Greek 119",
+      "lang": "el",
+      "standing": "press",
+      "hl": "el",
+      "gl": "GR",
+      "ceid": "GR:el",
+      "query": "\"non-consensual intimate images\" takedown law OR removal"
+    },
+    {
+      "label": "Greek 120",
+      "lang": "el",
+      "standing": "press",
+      "hl": "el",
+      "gl": "GR",
+      "ceid": "GR:el",
+      "query": "\"game workers\" union OR crunch OR developers strike"
+    },
+    {
+      "label": "Persian 121",
+      "lang": "fa",
+      "standing": "press",
+      "hl": "fa",
+      "gl": "IR",
+      "ceid": "IR:fa",
+      "query": "\"recommendation algorithm\" audit OR researcher access OR ranking change platform"
+    },
+    {
+      "label": "Persian 122",
+      "lang": "fa",
+      "standing": "press",
+      "hl": "fa",
+      "gl": "IR",
+      "ceid": "IR:fa",
+      "query": "\"loot box\" ruling OR gambling OR microtransactions regulator"
+    },
+    {
+      "label": "Persian 123",
+      "lang": "fa",
+      "standing": "press",
+      "hl": "fa",
+      "gl": "IR",
+      "ceid": "IR:fa",
+      "query": "\"streaming royalties\" OR per-stream payout OR artist contract dispute"
+    },
+    {
+      "label": "Vietnamese 124",
+      "lang": "vi",
+      "standing": "press",
+      "hl": "vi",
+      "gl": "VN",
+      "ceid": "VN:vi",
+      "query": "residuals OR \"writers strike\" OR \"actors strike\" OR SAG-AFTRA agreement"
+    },
+    {
+      "label": "Vietnamese 125",
+      "lang": "vi",
+      "standing": "press",
+      "hl": "vi",
+      "gl": "VN",
+      "ceid": "VN:vi",
+      "query": "\"digital replica\" OR likeness rights OR voice clone consent actor"
+    },
+    {
+      "label": "Vietnamese 126",
+      "lang": "vi",
+      "standing": "press",
+      "hl": "vi",
+      "gl": "VN",
+      "ceid": "VN:vi",
+      "query": "\"age verification\" adult platform OR pornography law OR age assurance"
+    },
+    {
+      "label": "Thai 127",
+      "lang": "th",
+      "standing": "press",
+      "hl": "th",
+      "gl": "TH",
+      "ceid": "TH:th",
+      "query": "\"screen time\" children study OR hours per day media consumption"
+    },
+    {
+      "label": "Thai 128",
+      "lang": "th",
+      "standing": "press",
+      "hl": "th",
+      "gl": "TH",
+      "ceid": "TH:th",
+      "query": "\"emotion recognition\" ban OR affective computing OR neuromarketing"
+    },
+    {
+      "label": "Thai 129",
+      "lang": "th",
+      "standing": "press",
+      "hl": "th",
+      "gl": "TH",
+      "ceid": "TH:th",
+      "query": "\"neural data\" OR neurorights OR brain-computer interface consumer"
+    },
+    {
+      "label": "Swahili (Kenya) 130",
+      "lang": "sw",
+      "standing": "press",
+      "hl": "sw",
+      "gl": "KE",
+      "ceid": "KE:sw",
+      "query": "\"smart TV\" tracking OR \"automatic content recognition\" privacy"
+    },
+    {
+      "label": "Swahili (Kenya) 131",
+      "lang": "sw",
+      "standing": "press",
+      "hl": "sw",
+      "gl": "KE",
+      "ceid": "KE:sw",
+      "query": "antitrust streaming OR Ticketmaster OR Live Nation remedy"
+    },
+    {
+      "label": "Swahili (Kenya) 132",
+      "lang": "sw",
+      "standing": "press",
+      "hl": "sw",
+      "gl": "KE",
+      "ceid": "KE:sw",
+      "query": "\"content moderation\" outsourced moderators conditions OR lawsuit"
+    },
+    {
+      "label": "Amharic (Ethiopia) 133",
+      "lang": "am",
+      "standing": "press",
+      "hl": "am",
+      "gl": "ET",
+      "ceid": "ET:am",
+      "query": "\"content quota\" OR \"streaming levy\" OR local content obligation"
+    },
+    {
+      "label": "Amharic (Ethiopia) 134",
+      "lang": "am",
+      "standing": "press",
+      "hl": "am",
+      "gl": "ET",
+      "ceid": "ET:am",
+      "query": "copyright lawsuit training data music OR film OR authors"
+    },
+    {
+      "label": "Amharic (Ethiopia) 135",
+      "lang": "am",
+      "standing": "press",
+      "hl": "am",
+      "gl": "ET",
+      "ceid": "ET:am",
+      "query": "\"dark patterns\" subscription cancellation ruling OR auto-renew"
+    },
+    {
+      "label": "Hausa (Nigeria) 136",
+      "lang": "ha",
+      "standing": "press",
+      "hl": "ha",
+      "gl": "NG",
+      "ceid": "NG:ha",
+      "query": "studio layoffs OR game studio closure OR animation jobs cut"
+    },
+    {
+      "label": "Hausa (Nigeria) 137",
+      "lang": "ha",
+      "standing": "press",
+      "hl": "ha",
+      "gl": "NG",
+      "ceid": "NG:ha",
+      "query": "\"market share\" streaming OR box office concentration OR record labels"
+    },
+    {
+      "label": "Hausa (Nigeria) 138",
+      "lang": "ha",
+      "standing": "press",
+      "hl": "ha",
+      "gl": "NG",
+      "ceid": "NG:ha",
+      "query": "payola OR playlist placement OR streaming fraud fake streams"
+    }
+  ],
+  "events": [
+    {
+      "label": "Competition and antitrust",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "antitrust entertainment OR streaming merger review OR Ticketmaster remedy ruling"
+    },
+    {
+      "label": "Regulator decisions",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "regulator fined streaming OR platform ruling OR classification board decision"
+    },
+    {
+      "label": "Court rulings",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "court ruling likeness OR loot box gambling OR copyright training data verdict"
+    },
+    {
+      "label": "Data protection and biometrics",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "data protection fine viewer data OR biometric consent ruling entertainment"
+    },
+    {
+      "label": "Neurotechnology governance",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "neurorights law OR neural data protection OR UNESCO neurotechnology"
+    },
+    {
+      "label": "Emotion and biometric research",
+      "lang": "en",
+      "standing": "research",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "emotion recognition accuracy study OR affective computing critique research"
+    },
+    {
+      "label": "Concentration research",
+      "lang": "en",
+      "standing": "research",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "media concentration study OR market share streaming music box office analysis"
+    },
+    {
+      "label": "Algorithm research",
+      "lang": "en",
+      "standing": "research",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "recommendation algorithm study OR audit platform researchers findings"
+    },
+    {
+      "label": "Screen time research",
+      "lang": "en",
+      "standing": "research",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "screen time study children hours OR media consumption survey global"
+    },
+    {
+      "label": "Labour and unions",
+      "lang": "en",
+      "standing": "rights",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "writers OR actors OR game workers union agreement OR strike outcome"
+    },
+    {
+      "label": "AI and likeness",
+      "lang": "en",
+      "standing": "rights",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "digital replica consent OR AI performer agreement OR voice actors campaign"
+    },
+    {
+      "label": "Children and platforms",
+      "lang": "en",
+      "standing": "rights",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "age-appropriate design code OR minors platform ban OR children data platform"
+    },
+    {
+      "label": "Adult industry regulation",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "adult platform age verification law OR payment processor policy OR takedown obligation"
+    },
+    {
+      "label": "Creator economy disputes",
+      "lang": "en",
+      "standing": "rights",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "demonetisation creators OR platform payout change OR creator union"
+    },
+    {
+      "label": "Cultural policy",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "content quota streaming OR cultural exception OR local production obligation"
+    },
+    {
+      "label": "Game monetisation policy",
+      "lang": "en",
+      "standing": "official",
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en",
+      "query": "loot box regulation OR in-game purchase refund OR virtual currency rules"
+    }
+  ]
+}
