@@ -47,13 +47,27 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 
+# The shared gazetteer. Placement used to be each wire's own short country
+# table, which put most of every wire in a counter marked "unplaced"; this is
+# the fleet's common one, and it is optional at import so a harvest still runs
+# if the data file has not been fetched yet.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import galaxy_places
+    _GAZETTEER = True
+except Exception as _exc:                       # noqa: BLE001
+    print("  ! gazetteer unavailable (%s); falling back to the local table"
+          % _exc, file=sys.stderr)
+    galaxy_places = None
+    _GAZETTEER = False
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCES_PATH = os.path.join(HERE, "sources_entertainment.json")
 OUT_PATH = os.path.join(HERE, "wire_entertainment.json")
 
 RETAIN_DAYS = 45
 MAX_ITEMS = 1200
-WORKERS = 10         # a few hundred wires now
+WORKERS = 14         # 26 languages, each asked in its own
 NOTABLE_SCORE = 3       # at or above this a story is marked as consequential
 
 # --------------------------------------------------------------------------
@@ -77,9 +91,24 @@ def build_gnews_url(loc):
     return ("https://news.google.com/rss/search?q=" + urllib.parse.quote(q) +
             "&hl=" + loc["hl"] + "&gl=" + loc["gl"] + "&ceid=" + loc["ceid"])
 
+READ_BUDGET_MIN = 35          # minutes spent reading wires
+
+# The wall-clock budget for reading wires. Past it the remaining sources are
+# recorded unreachable and the harvest finishes on what it has, because the
+# wire is only written at the end of run() and a job killed by the workflow
+# timeout commits nothing at all — which is how a feed gets stuck stale.
+DEADLINE = None
+
+
+def out_of_time():
+    return DEADLINE is not None and time.monotonic() > DEADLINE
+
+
 def fetch(url, tries=3):
     last = None
     for attempt in range(tries):
+        if out_of_time():
+            return None
         try:
             req = urllib.request.Request(url, headers={
                 "User-Agent": USER_AGENT,
@@ -92,6 +121,16 @@ def fetch(url, tries=3):
                 if resp.headers.get("Content-Encoding") == "gzip":
                     raw = gzip.GzipFile(fileobj=io.BytesIO(raw)).read()
                 return raw
+        except urllib.error.HTTPError as exc:
+            last = exc
+            # Being rate-limited or refused is an answer, not a hiccup. Trying
+            # the same query twice more against the same limiter spends eighty
+            # seconds of a worker slot to be told the same thing, and deepens
+            # the throttle for every other query in the run.
+            if exc.code in (403, 429, 451):
+                time.sleep(1.5)
+                break
+            time.sleep(1.5 * (attempt + 1))
         except Exception as exc:                       # noqa: BLE001 — report, don't crash the run
             last = exc
             time.sleep(1.5 * (attempt + 1))
@@ -810,6 +849,162 @@ DECIDED_C = _compile_all(DECIDED)
 INSTITUTIONAL_C = _compile_all(INSTITUTIONAL)
 MEASURED_C = _compile_all(MEASURED)
 PENDING_C = _compile_all(PENDING)
+# ------------------------------------------------------------------
+# The subjects, in the languages the queries now ask in.
+#
+# Built alongside the queries rather than after them: localised
+# queries against English-only subjects fetch stories the subject
+# gate then refuses, which reads as an improvement in the source
+# count and a worsening in everything else.
+# ------------------------------------------------------------------
+LOCAL_TERMS = {
+    "ai": [
+        ("ai 俳優 肖像権", None), ("ai 演员 肖像权", None),
+        ("ai 배우 초상권", None), ("ai 음악 저작권", None),
+        ("ai音乐 版权", None), ("ai音楽 著作権", None),
+        ("derechos de imagen", None), ("direitos de imagem", None),
+        ("diritti d'immagine attori", None), ("droits à l'image", None),
+        ("interpreti sintetici sindacato", None), ("interprètes synthétiques syndicat", None),
+        ("intérpretes sintéticos sindicato", None), ("ki abbild rechte", None),
+        ("ki-musik urheberrecht", None), ("musica generata dall'ia", None),
+        ("musique générée par", None), ("música generada por", None),
+        ("música gerada por", None), ("synthetische darsteller gewerkschaft", None),
+        ("музыка ии авторские", None), ("права на образ", None),
+        ("синтетические исполнители", None), ("合成演员 工会", None),
+        ("合成音声 声優", None), ("합성 배우 노조", None),
+    ],
+    "algorithms": [
+        ("algorithme de recommandation", None), ("algorithmische transparenz urteil", None),
+        ("algoritmo de recomendación", None), ("algoritmo de recomendação", None),
+        ("algoritmo di raccomandazione", None), ("empfehlungsalgorithmus regulierung", None),
+        ("transparence algorithmique décision", None), ("transparencia algorítmica sentencia", None),
+        ("transparência algorítmica decisão", None), ("trasparenza algoritmica", None),
+        ("алгоритм рекомендаций регулирование", None), ("прозрачность алгоритмов", None),
+        ("アルゴリズム 透明性", None), ("レコメンド アルゴリズム 規制", None),
+        ("推荐算法 监管", None), ("算法透明度 规定", None),
+        ("알고리즘 투명성", None), ("추천 알고리즘 규제", None),
+    ],
+    "labour": [
+        ("conflicto sindicato de", None), ("conflit syndicat des", None),
+        ("conflito sindicato de", None), ("demissões estúdio de", None),
+        ("despidos estudio de", None), ("entlassungen spielestudio", None),
+        ("greve de equipas", None), ("grève des équipes", None),
+        ("huelga de equipos", None), ("licenciements studio de", None),
+        ("licenziamenti studio di", None), ("sciopero delle troupe", None),
+        ("streik filmcrew", None), ("tarifkonflikt schauspielgewerkschaft", None),
+        ("vertenza sindacato attori", None), ("забастовка киногруппы", None),
+        ("сокращения в игровой", None), ("спор профсоюза актёров", None),
+        ("ゲーム会社 人員削減", None), ("俳優 労組 交渉", None),
+        ("剧组 罢工", None), ("撮影スタッフ ストライキ", None),
+        ("游戏公司 裁员", None), ("演员工会 谈判", None),
+        ("게임사 구조조정", None), ("배우 노조 분쟁", None),
+        ("촬영 스태프 파업", None),
+    ],
+    "screentime": [
+        ("altersgrenze soziale medien", None), ("batas usia media", None),
+        ("bildschirmzeit kinder regeln", None), ("ekran süresi çocuklar", None),
+        ("limite d'âge réseaux", None), ("limite de idade", None),
+        ("limite di età", None), ("límite de edad", None),
+        ("sns 年齢制限 法案", None), ("sosyal medya yaş", None),
+        ("tempo davanti agli", None), ("tempo de ecrã", None),
+        ("temps d'écran enfants", None), ("tiempo de pantalla", None),
+        ("waktu layar anak", None), ("возрастной ценз соцсети", None),
+        ("экранное время дети", None), ("儿童 屏幕时间 规定", None),
+        ("子ども スクリーンタイム 規制", None), ("社交媒体 年龄限制 法律", None),
+        ("소셜미디어 연령 제한", None), ("어린이 스크린타임 규제", None),
+    ],
+    "statecontrol": [
+        ("censura cinematografica tagli", None), ("censura cinematográfica cortes", None),
+        ("censure cinématographique coupes", None), ("condiciones de licencia", None),
+        ("contenido prohibido emisora", None), ("contenu interdit diffuseur", None),
+        ("contenuti vietati emittente", None), ("conteúdo proibido emissora", None),
+        ("film sansürü kesintiler", None), ("filmzensur schnitte", None),
+        ("inhalte verboten sender", None), ("içerik yasağı yayıncı", None),
+        ("konten dilarang penyiar", None), ("sensor film pemotongan", None),
+        ("запрет контента вещатель", None), ("цензура фильма правки", None),
+        ("内容被禁 播出", None), ("放送禁止 コンテンツ", None),
+        ("映画 検閲 カット", None), ("电影 审查 删减", None),
+        ("방송 금지 콘텐츠", None), ("영화 검열 삭제", None),
+    ],
+    "studios": [
+        ("acquisizione piattaforma streaming", None), ("adquisición de plataforma", None),
+        ("aquisição de plataforma", None), ("concentración de estudios", None),
+        ("concentration des studios", None), ("concentração de estúdios", None),
+        ("fusione tra studi", None), ("rachat de plateforme", None),
+        ("studiofusion", None), ("übernahme streaminganbieter kartellamt", None),
+        ("покупка стримингового сервиса", None), ("слияние киностудий", None),
+        ("影视公司 合并", None), ("映画会社 統合", None),
+        ("流媒体 收购 审查", None), ("配信大手 買収", None),
+        ("스튜디오 합병", None), ("스트리밍 인수", None),
+    ],
+}
+
+for _tid, _label, _terms in TOPICS:
+    _terms.extend(LOCAL_TERMS.get(_tid, []))
+
+# ------------------------------------------------------------------
+# Subjects this wire had a name for and never asked about.
+#
+# The terms below were already here and were well written; what was
+# missing was any query aimed at them, so they held zero stories
+# however much the world published. These are the phrases from the
+# queries now added, so what is fetched can be filed.
+# ------------------------------------------------------------------
+FILL_TERMS = {
+    "bottlenecks": [
+        ("control de la", None), ("controllo della distribuzione", None),
+        ("controlo da distribuição", None), ("contrôle de la", None),
+        ("integración vertical de", None), ("integrazione verticale degli", None),
+        ("integração vertical de", None), ("intégration verticale des", None),
+        ("kontrolle des vertriebs", None), ("ventana de estreno", None),
+        ("vertikale integration studios", None), ("发行 垄断 争议", None),
+        ("垂直整合 影视 发行", None), ("垂直統合 映画 配給", None),
+        ("配給 独占 争い", None), ("배급 독점 분쟁", None),
+        ("수직계열화 배급", None),
+    ],
+    "television": [
+        ("baisse du financement", None), ("corte no financiamento", None),
+        ("independencia editorial de", None), ("independência editorial", None),
+        ("indipendenza editoriale rai", None), ("indépendance éditoriale du", None),
+        ("recorte de financiación", None), ("redaktionelle unabhängigkeit öffentlich-rechtlicher", None),
+        ("rundfunkbeitrag kürzung", None), ("taglio al finanziamento", None),
+        ("редакционная независимость телеканала", None), ("сокращение финансирования общественного", None),
+        ("公共广播 经费 削减", None), ("公共放送 受信料 見直し", None),
+        ("放送局 編集の独立性", None), ("电视台 编辑独立性", None),
+        ("공영방송 수신료 개편", None), ("방송 편성 독립성", None),
+    ],
+    "tracking": [
+        ("dados de visionamento", None), ("dati di visione", None),
+        ("datos de visionado", None), ("données de visionnage", None),
+        ("rastreamento de smart", None), ("seguimiento de televisores", None),
+        ("smart-tv tracking datenschutz", None), ("streaming nutzungsdaten erhoben", None),
+        ("suivi des téléviseurs", None), ("tracciamento smart tv", None),
+        ("スマートテレビ 追跡 プライバシー", None), ("智能电视 追踪 隐私", None),
+        ("視聴データ 収集 配信", None), ("观看数据 收集 流媒体", None),
+        ("스마트tv 추적 프라이버시", None), ("시청 데이터 수집", None),
+    ],
+}
+
+for _tid, _label, _terms in TOPICS:
+    _terms.extend(FILL_TERMS.get(_tid, []))
+
+
+# --------------------------------------------------------------------------
+# The same subjects in the languages this wire's own queries ask in, derived
+# from those queries and filed under the subject each query's label names. The
+# gate above was written in English; the queries were translated and it was
+# not, so three quarters of what the wire fetched could not be recognised once
+# it arrived. Generated — edit topics_multilingual.json, or delete the file to
+# turn this off.
+# --------------------------------------------------------------------------
+_EXTRA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "topics_multilingual.json")
+if os.path.exists(_EXTRA_PATH):
+    with open(_EXTRA_PATH, encoding="utf-8") as _fh:
+        _EXTRA = json.load(_fh)
+    TOPICS = [(tid, label, terms + [(t, g) for t, g in _EXTRA.get(tid, [])])
+              for tid, label, terms in TOPICS]
+
 TOPICS_C = [(tid, label, [(_compile(t), _compile_all(g) if g else None) for t, g in terms])
             for tid, label, terms in TOPICS]
 GEO3_C = [(rid, rlabel, [(sid, slabel, [(pid, plabel, _compile_all(terms))
@@ -1562,19 +1757,91 @@ def scene_first(text, places):
         (scene if _is_scene(text, _first_pos(text, terms.get(pid, []))) else rest).append(pid)
     return scene + rest
 
-def point_for(text, places, subs, regions):
-    """The most specific point a story resolved to: a named sub-national place
-    if there is one, otherwise the country, otherwise the subregion or region.
-    Returns (label_or_None, point_or_None)."""
+
+# --------------------------------------------------------------------------
+# The gazetteer answers with a country; this wire's taxonomy is keyed on ids
+# whose leading token is that country's ISO-2. Filing a placed story under its
+# region is therefore a lookup, not a guess. Where a country is split across
+# several places, only region and subregion are filled: which of the places a
+# story belongs to is a question the country code cannot answer.
+# --------------------------------------------------------------------------
+ISO_REGION = {}
+for _rid, _rlabel, _subs in GEO3:
+    for _sid, _slabel, _places in _subs:
+        for _pid, _plabel, _terms in _places:
+            _iso = _pid.split("-")[0].lower()
+            if len(_iso) == 2:
+                ISO_REGION.setdefault(_iso, (_rid, _sid))
+
+
+def file_by_country(row, cc):
+    """Put a gazetteer-placed story in its region, if the wire has one."""
+    if not cc:
+        return
+    hit = ISO_REGION.get(str(cc).lower())
+    if not hit:
+        return
+    rid, sid = hit
+    if not row.get("w") or row["w"] == ["unlocated"]:
+        row["w"] = [rid]
+    if not row.get("sr") or row["sr"] == ["unlocated"]:
+        row["sr"] = [sid]
+
+
+
+def country_for(raw, locale=None):
+    """The ISO-2 the placement resolved to, or None."""
+    if not _GAZETTEER:
+        return None
+    try:
+        return galaxy_places.resolve_full(raw, locale)[4]
+    except Exception:
+        return None
+
+
+def point_for(text, places, subs, regions, locale=None, raw=None):
+    """The most specific point a story resolved to.
+
+    The order is deliberate. This wire's own curated table goes first: it holds
+    the places this subject actually turns up and the country list it was
+    written against, and it beats a general gazetteer on its own ground. The
+    shared gazetteer follows but only overrides at the settlement level, so a
+    headline naming Kharkiv pins on Kharkiv rather than the middle of Ukraine,
+    while a country reading from this wire's own table still wins over a
+    country reading from the gazetteer. Then the bodies that stand for a
+    jurisdiction without naming it — EFSA is a European story, ANVISA a
+    Brazilian one. Last, and weakest, the country the source itself reports
+    from.
+
+    Returns (label_or_None, point_or_None, approx). approx is True only for
+    that last case, where nothing in the story placed it and the point is the
+    reporting locale rather than the scene. The page draws those hollow.
+    """
     label, point = precise_for(text)
     if point:
-        return label, point
+        return label, point, False
+
+    glabel, gpoint, grank = None, None, -1
+    if _GAZETTEER:
+        glabel, gpoint, grank, _approx = galaxy_places.resolve_ranked(raw or text)
+        if grank == 3:
+            return glabel, gpoint, False
+
     places = scene_first(text, places)
     for level in (places, subs, regions):
         for pid in level:
             if pid in COORDS:
-                return None, COORDS[pid]
-    return None, None
+                return None, COORDS[pid], False
+
+    if gpoint:
+        return glabel, gpoint, False
+
+    if _GAZETTEER and locale:
+        llabel, lpoint, _lrank, lapprox = galaxy_places.resolve_ranked("", locale)
+        if lpoint:
+            return llabel, lpoint, lapprox
+
+    return None, None, False
 
 
 def load_sources():
@@ -1588,13 +1855,16 @@ def load_sources():
         for loc in cfg.get(block, []):
             srcs.append({"name": prefix + loc["label"], "lang": loc["lang"],
                          "standing": loc["standing"], "region": loc["standing"],
-                         "kind": "news", "url": build_gnews_url(loc),
+                         "kind": "news", "url": build_gnews_url(loc), "gl": loc.get("gl"),
                          "query": loc.get("query", "")})
     return srcs, cfg
 
 
 def run(dry_run=False, fixtures=None):
+    global DEADLINE
     sources, cfg = load_sources()
+    if not fixtures:
+        DEADLINE = time.monotonic() + READ_BUDGET_MIN * 60
     print("Reading %d wires…" % len(sources))
 
     def read(src):
@@ -1654,7 +1924,12 @@ def run(dry_run=False, fixtures=None):
                 row["w"] = regions
                 row["sr"] = subs
                 row["pl"] = places
-                row["pn"], row["ll"] = point_for(text, places, subs, regions)
+                row["gl"] = src.get("gl")
+                _raw = (row["t"] or "") + " " + (row.get("s") or "")
+                row["pn"], row["ll"], row["pa"] = point_for(
+                    text, places, subs, regions, src.get("gl"), _raw)
+                if row["ll"]:
+                    file_by_country(row, country_for(_raw, src.get("gl")))
                 row["p"] = total
                 row["y"] = reasons
                 row["st"] = src["standing"]
@@ -1667,8 +1942,23 @@ def run(dry_run=False, fixtures=None):
 
     fresh_urls = {canon_url(i["u"]) for i in items}
     for row in previous:
-        if "x" in row:
-            absorb(row)
+        if "x" not in row:
+            continue
+        # A retained story is placed again rather than carried forward with the
+        # answer it happened to get the day it was first read. RETAIN_DAYS is
+        # 45, so without this a change to the placement layer takes a month and
+        # a half to reach the map, and a story never re-fetched keeps its first
+        # answer for good. Rows already holding a point resolved from their own
+        # text are left alone; only the unplaced and the source-country
+        # approximations are reconsidered.
+        if not row.get("ll") or row.get("pa"):
+            _raw = ((row.get("t") or "") + " " + (row.get("s") or ""))
+            row["pn"], row["ll"], row["pa"] = point_for(
+                _raw.lower(), row.get("pl") or [], row.get("sr") or [],
+                row.get("w") or [], row.get("gl"), _raw)
+            if row["ll"]:
+                file_by_country(row, country_for(_raw, row.get("gl")))
+        absorb(row)
 
     cutoff = int(time.time() * 1000) - RETAIN_DAYS * 86400000
     items = [i for i in items if (i.get("d") or cutoff + 1) >= cutoff]
